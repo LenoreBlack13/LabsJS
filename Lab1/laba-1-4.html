@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Lab 1-4</title>
+    <script>
+        function NewClass(title, url) {
+            this.title = title;
+            this.url = url;
+            this.show = show;
+            function show() {
+                document.write(`<p>Title: ${this.title}</p>`);
+                document.write(`<p>URL: <a href="${this.url}">${this.url}</a></p>`);
+            }
+        }
+
+        var obj = new NewClass("JS Fiddle", "https://jsfiddle.net/");
+        obj.show();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

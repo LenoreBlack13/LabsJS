@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <script>
+        (function () {
+            function getDayWord(n) {
+                var lastNumber = n % 10;
+                var lastTwoNumbers = n % 100;
+                if (lastTwoNumbers >= 11 && lastTwoNumbers <= 19) {
+                    return "дней";
+                }
+                switch (lastNumber) {
+                    case 1:
+                        return "день";
+                    case 2:
+                    case 3:
+                    case 4:
+                        return "дня";
+                    default:
+                        return "дней"
+                }
+            }
+
+            function displayMessage(n) {
+                var dayWord = getDayWord(n);
+                var message = `До конца вашей учебы остается ${n} ${dayWord}`;
+                // console.log(message);
+                document.getElementById("message").innerHTML = message;
+            }
+            window.onload = function () {
+                displayMessage(4);
+            };
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="message"></div>
+</body>
+
+</html>

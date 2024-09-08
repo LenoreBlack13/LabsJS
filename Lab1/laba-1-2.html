@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Lab 1-2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="multiplyTable"></table>
+    <script>
+        (function paintTable() {
+            var table = document.getElementById('multiplyTable');
+            for (var i = 1; i <= 10; i++) {
+                var row = document.createElement('tr');
+                for (var j = 1; j <= 10; j++) {
+                    var cell = document.createElement('td');
+                    cell.textContent = i * j;
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+
+        }());
+    </script>
+</body>
+
+</html>
