@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <script>
+        (function () {
+            'use strict';
+
+            document.addEventListener('DOMContentLoaded', function () {
+
+                function validateForm(event) {
+                    event.preventDefault(); // Остановка стандартной отправки формы
+                    const login = document.getElementById('login').value.trim();
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirm-password').value;
+                    const email = document.getElementById('email').value.trim();
+
+                    if (!login || !password || !confirmPassword || !email) {
+                        alert('Please, fill in all fields');
+                        return;
+                    }
+
+                    if (password.length < 6 || password.length > 12) {
+                        alert('The password must contain from 6 to 12 characters');
+                        return;
+                    }
+
+                    if (password !== confirmPassword) {
+                        alert('Passwords don\'t match');
+                        return;
+                    }
+
+                    if (!email.includes('@')) {
+                        alert('Invalid email address');
+                        return;
+                    }
+
+                    alert('The form has been successfully submitted!');
+                }
+
+                document.getElementById('registration-form').addEventListener('submit', validateForm);
+            });
+
+        })();
+    </script>
+</head>
+
+<body>
+    <h1>Registration form</h1>
+    <form id="registration-form" method="post">
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirm-password">Confirm password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit">Send</button>
+    </form>
+</body>
+
+</html>

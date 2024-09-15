@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Lab 2-4</h1>
+    <a href="#" id="open-window">New window</a>
+    <script>
+        (function () {
+            'use strict';
+            document.getElementById('open-window').addEventListener('click', function (event) {
+                event.preventDefault();
+                window.open(
+                    "https://developer.mozilla.org/",
+                    "new Window",
+                    "width=300,height=400,resizable=yes,scrollbars=yes"
+                );
+            });
+        })();
+    </script>
+</body>
+
+</html>

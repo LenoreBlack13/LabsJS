@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        img {
+            transition: transform 0.3s;
+            transform-origin: top left;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="imagePic" src="picture.png">
+    <script>
+        (function () {
+            "use strict";
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const image = document.getElementById('imagePic');
+                var isBig = false;
+                image.addEventListener('click', function () {
+                    if (isBig) {
+                        image.style.transform = 'scale(1)';
+                    } else {
+                        image.style.transform = 'scale(2)';
+                    }
+                    isBig = !isBig;
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
