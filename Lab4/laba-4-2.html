@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        figure {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        figcaption {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <figure>
+        <figcaption>Embed</figcaption>
+        <embed src="butterfly.svg" type="image/svg+xml" width="500" height="500">
+    </figure>
+    <figure>
+        <figcaption>Object</figcaption>
+        <object data="butterfly.svg" type="image/svg+xml" width="500" height="500">butterfly</object>
+    </figure>
+    <figure>
+        <figcaption>SVG</figcaption>
+        <svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="250" cy="250" r="200" fill="#bf177f" />
+            <text x="250" y="250" font-size="70" text-anchor="middle" fill="pink">Hello!</text>
+        </svg>
+    </figure>
+    <figure>
+        <figcaption>Video</figcaption>
+        <video width="640" height="360" controls>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </figure>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма</title>
+    <style>
+        .status-icon {
+            margin-left: 10px;
+            width: 10px;
+            height: 10px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Пожалуйста, заполните обязательные поля.</h1>
+    <form id="myForm">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" required>
+        <img class="status-icon" src="no.jpeg" id="name-status" alt="status">
+        <br><br>
+
+        <label for="age">Возраст:</label>
+        <input type="number" id="age">
+        <img class="status-icon" src="yes.jpeg" id="age-status" alt="status">
+        <br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+        <img class="status-icon" src="no.jpeg" id="email-status" alt="status">
+        <br><br>
+
+        <label for="website">Сайт:</label>
+        <input type="url" id="website">
+        <img class="status-icon" src="yes.jpeg" id="website-status" alt="status">
+        <br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <div class="error" id="error-message" style="display: none;"></div>
+
+    <script>
+        (function () {
+            "use strict";
+            window.onload = function () {
+                const form = document.getElementById('myForm');
+                form.addEventListener("input", function () {
+                    validateFields(event.target.id);
+                });
+
+                form.addEventListener("submit", function (event) {
+                    validateFields();
+                    const errorMessage = document.getElementById("error-message");
+                    errorMessage.style.display = "none";
+
+                    if (!form.checkValidity() ||
+                        document.getElementById("email-status").src.includes("no.jpeg")) {
+                        event.preventDefault();
+                        errorMessage.innerText = "Пожалуйста, заполните все обязательные поля корректно.";
+                        errorMessage.style.display = "block";
+                    } else {
+                        alert("Форма успешно отправлена");
+                    }
+                });
+            };
+
+            function validateFields(changedFiled) {
+                const nameField = document.getElementById("name");
+                const emailField = document.getElementById("email");
+                const ageField = document.getElementById("age");
+                const websiteField = document.getElementById("website");
+
+                if (changedFiled === "name" || !changedFiled) {
+                    document.getElementById("name-status").src = nameField.value ? "yes.jpeg" : "no.jpeg";
+                }
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (changedFiled === "email" || !changedFiled) {
+                    document.getElementById("email-status").src = emailPattern.test(emailField.value) ? "yes.jpeg" : "no.jpeg";
+                }
+
+                if (changedFiled === "age" || !changedFiled) {
+                    if (ageField.value !== "" && ageField.value < 0) {
+                        document.getElementById("age-status").src = "no.jpeg";
+                    } else {
+                        document.getElementById("age-status").src = "yes.jpeg";
+                    }
+                }
+                if (changedFiled === "website" || !changedFiled) {
+                    document.getElementById("website-status").src = websiteField.value ? "yes.jpeg" : "no.jpeg";
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
