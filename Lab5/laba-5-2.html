@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone book</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', Helvetica, sans-serif;
+            margin: auto;
+            padding: 20px;
+            color: #2e2c2c;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #666666;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .contact button {
+            padding: 5px 10px;
+            cursor: pointer;
+            color: rgb(169, 82, 82);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Phone book</h1>
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="tel" id="phone" placeholder="Phone number" required pattern="^\+?[1-9]\d{1,14}$">
+    <button id="addNumber">Add contact</button>
+
+    <h1>Contact list</h1>
+    <div id="contactList"></div>
+
+    <script>
+        (function () {
+            "use strict";
+
+            function updateContactList() {
+                const contactList = document.getElementById("contactList");
+                contactList.innerHTML = "";
+                const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
+                contacts.forEach((contact, index) => {
+                    const contactDiv = document.createElement("div");
+                    contactDiv.className = "contact";
+                    contactDiv.innerHTML = `${contact.name} - ${contact.phone}<button onclick="deleteContact(${index})">Delete</button>`;
+                    contactList.appendChild(contactDiv);
+                });
+            }
+
+            function addNumber() {
+                const nameInput = document.getElementById("name");
+                const phoneInput = document.getElementById("phone");
+
+                if (nameInput.value && phoneInput.value && phoneInput.checkValidity()) {
+                    const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                    contacts.push({ name: nameInput.value, phone: phoneInput.value });
+                    localStorage.setItem("contacts", JSON.stringify(contacts));
+
+                    nameInput.value = "";
+                    phoneInput.value = "";
+                    updateContactList();
+                } else {
+                    alert("Fill in both fields correctly!");
+                }
+            }
+
+            function deleteContact(index) {
+                const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                contacts.splice(index, 1);
+                localStorage.setItem("contacts", JSON.stringify(contacts));
+                updateContactList();
+            }
+            document.getElementById("addNumber").addEventListener("click", addNumber);
+            updateContactList();
+        })();
+
+    </script>
+</body>
+
+</html>
