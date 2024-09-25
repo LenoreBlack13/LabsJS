@@ -1,0 +1,264 @@
+/* Общие стили для всего сайта */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/* Стили для заголовка сайта */
+header {
+    background-color: #ffffff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F26E50;
+}
+
+/* Стили для навигации */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #50B4BF;
+    color: #ffffff;
+}
+
+/* Стили для баннера */
+.banner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30vh;
+    background: url('../images/toys.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Стили для контейнера в баннере */
+.container {
+    padding: 20px;
+    /* Отступ внутри контейнера */
+    max-width: 500px;
+    /* Максимальная ширина контейнера */
+    text-align: left;
+}
+
+.title-container {
+    background-color: #50B4BF;
+    margin-bottom: 10px;
+    /* Отступ между заголовком и текстом */
+    color: white;
+}
+
+.text-container {
+    background-color: #F2B84B;
+    margin-bottom: 10px;
+    /* Отступ между текстом и кнопкой */
+    color: white;
+}
+
+/* Стили для кнопки в баннере */
+.button-container a {
+    background-color: #F23A29;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Стили для заголовка и текста в баннере */
+.banner h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.banner p {
+    font-size: 18px;
+    text-align: left;
+}
+
+.learn-more {
+    background-color: #F26E50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    /* Добавляем отступ сверху */
+    text-align: center;
+    /* Центрируем текст кнопки */
+}
+
+main {
+    padding: 20px;
+}
+
+/* Основные стили для контента */
+.introduction {
+    text-align: center;
+    /* Центрирует текст внутри блока */
+    padding: 20px;
+    /* Добавляет отступы сверху и снизу */
+    background-color: #f9f9f9;
+    /* Цвет фона для выделения раздела */
+}
+
+.introduction h2 {
+    margin-bottom: 10px;
+    /* Отступ между заголовком и текстом */
+}
+
+.introduction p {
+    max-width: 800px;
+    /* Ограничивает ширину текста для более удобного чтения */
+    margin: 0 auto;
+    /* Центрирует параграф внутри блока */
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    background: #ffffff;
+}
+
+.feature {
+    background: #50B4BF;
+    /* цвет фона для первого блока */
+    padding: 1rem;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    color: white;
+}
+
+.feature:nth-child(2) {
+    background: #F2B84B;
+    /* цвет фона для второго блока */
+}
+
+.feature:nth-child(3) {
+    background: #F26E50;
+    /* цвет фона для третьего блока */
+}
+
+/* Стили для контактнов */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.contact-info {
+    width: 48%;
+    padding: 20px;
+    background: #8b8b8b46;
+}
+
+.contact-form {
+    width: 48%;
+    padding: 20px;
+    background: #ffffff;
+}
+
+/* Стили для форм и кнопок */
+.contact-form h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #F26E50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #50B4BF;
+}
+
+/* Стили для фоток */
+.gallery {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.gallery img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    /* Плавный переход */
+}
+
+.gallery img.active {
+    opacity: 1;
+    /* Показываем текущее активное изображение */
+}
+
+/* Стили для футера */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #50B4BF;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+
+/* SVG */
+.heart {
+    width: 300px;
+    height: 300px;
+}
+
+.heart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
